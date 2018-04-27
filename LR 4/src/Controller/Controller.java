@@ -46,7 +46,6 @@ public class Controller implements Runnable
 	@Override
 	public void run() 
 	{
-			
 			Platform.runLater(new Runnable()
 			{
                 @Override
@@ -67,25 +66,47 @@ public class Controller implements Runnable
 	    	t2.start();
 	    	t3.start();
 	    	do{
-	    		if(smass[0].flag==1 || smass[1].flag==1 || smass[2].flag==1)
-	    		{
+	    		try {
+		    		if(smass[0].flag==1 || smass[1].flag==1 || smass[2].flag==1)
+		    		{
+		    			if(t1.isAlive()==true)
+		    			{
+		    				System.out.println("IF 1");
+		    				t1.interrupt();
+		    			}
+		    			if(t2.isAlive()==true)
+		    			{
+		    				System.out.println("IF 2");
+		    				t2.interrupt();
+		    			}
+		    			if(t3.isAlive()==true)
+		    			{
+		    				System.out.println("IF 3");
+		    				t3.interrupt();
+		    			}
+		    			System.out.println("Сработало завершение");
+		    			break;
+		    		}
+		    		Thread.sleep(0);
+	    		}
+	    		catch (InterruptedException e){
 	    			if(t1.isAlive()==true)
 	    			{
-	    				System.out.println("IF 1");
+	    				System.out.println("IF 1 END");
 	    				t1.interrupt();
 	    			}
 	    			if(t2.isAlive()==true)
 	    			{
-	    				System.out.println("IF 2");
+	    				System.out.println("IF 2 END");
 	    				t2.interrupt();
 	    			}
 	    			if(t3.isAlive()==true)
 	    			{
-	    				System.out.println("IF 3");
+	    				System.out.println("IF 3 END");
 	    				t3.interrupt();
 	    			}
-	    			System.out.println("Сработало завершение");
-	    			break;
+				System.out.println("Сработало завершение для controller");
+				return;
 	    		}
 	    	}
 	    	while(t1.isAlive()==true || t2.isAlive()==true || t3.isAlive()==true);

@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -39,6 +40,13 @@ public class Main extends Application
      * @see Controller
      */
 	Controller ctr = new Controller(Button1,Button2);
+	
+	/**
+	 * Thread for controlling other threads {@link Controller}
+	 * @see Main_Thread
+	 * @see Side_Thread
+	 */
+	Thread cont;
 	
 	/**
 	 * Function to check if the input is correct.
@@ -180,7 +188,7 @@ public class Main extends Application
 		            number[2]=Integer.parseInt(TextFieldC.getText());
 		            number[3]=Integer.parseInt(TextFieldEqually.getText());
 		            
-	            	Thread cont = new Thread(ctr,"CONTROLLER");
+	            	cont = new Thread(ctr,"CONTROLLER");
 		            
 		            ctr.mmass[0].set_mass(number, 1, ctr.smass[0]);
 		            ctr.mmass[1].set_mass(number, 2, ctr.smass[1]);
@@ -227,6 +235,26 @@ public class Main extends Application
 	            }
 	        });
 	       
+	       
+	       primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+               @Override
+               public void handle(WindowEvent event) {
+            	   System.out.println("Сработала кнопка завершения");
+            	   try {
+	            	   if(cont.isAlive()==true)
+	            	   {
+	            		   cont.interrupt();
+	            	   }
+            	   }
+            	   catch(NullPointerException a)
+            	   {
+            		   System.out.println("Исключение");
+            		   return;
+            	   }
+            	   return;
+                   //event.consume();
+               }
+           });
 	       Scene scene = new Scene(root, 450, 170);
 	       primaryStage.setTitle("Laboratory work №4");
 	       primaryStage.setScene(scene);
