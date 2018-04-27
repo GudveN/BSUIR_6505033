@@ -1,0 +1,19 @@
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:8:36: value should is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m    Main.getListSum(listOfNumbers) should be (38.0)[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:13:43: value should is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m    Main.getListSumTailrec(listOfNumbers) should be (0)[0m
+[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:18:11: could not find implicit value for parameter pos: org.scalactic.source.Position[0m
+[0m[[0m[31merror[0m] [0m[0m    assert(Main.getListSum(listOfNumbers) === Main.getListSumTailrec(listOfNumbers))[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:23:49: value should is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    Main.getIndexIncSequence(sequenceOfNumbers) should be (5)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:28:56: value should is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    Main.getIndexIncSequenceTailrec(sequenceOfNumbers) should be (0)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Workspace\Java\LabWork5\src\test\scala\MainTests.scala:33:11: could not find implicit value for parameter pos: org.scalactic.source.Position[0m
+[0m[[0m[31merror[0m] [0m[0m    assert(Main.getIndexIncSequence(sequenceOfNumbers) === Main.getIndexIncSequenceTailrec(sequenceOfNumbers))[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
